@@ -1,0 +1,288 @@
+/* @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) */
+strong{
+	font-weight: normal;
+}
+html {
+  font-size: 62.5%; 
+  box-sizing: border-box;  
+ }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+	background: $body-color;	
+	color: $body-font-color;
+	font-family: $body-font;
+	font-feature-settings: "kern" 1, "liga" 1, "pnum" 1;
+	font-kerning: normal;
+	font-smoothing: antialiased;	
+	font-weight: 300;
+	line-height: $body-line-height;
+	text-rendering: optimizeLegibility;	
+	@include font-smoothing;
+}
+hr{
+	border-top: 1px solid rgba($dark-grey,0.2);
+	border-bottom: none;
+	height: 0;
+}
+body a, body a:link, body a:visited, body a:focus, body a:hover, body a:active{
+	text-decoration:none; 
+	transition: all $time-transition;
+	&:any-link{
+		text-decoration:none !important; 
+	}
+}
+em{
+	font-style: italic;
+}
+.display-block{
+	display: block;
+}
+.upper{
+	text-transform: uppercase;
+}
+.nomargin{
+	margin-bottom: 0;
+}
+.centered{
+	text-align: center;
+}
+.small, small{
+	font-size: $f-mini;
+}
+
+/*
+$f-mini: 14px;
+$f-small: 16px;
+$f-body: 18px;
+$f-medium: 21px;
+$f-large: 24px;
+$f-large: 24px;
+$f-xlarge: 30px;
+$f-xxlarge: 45px;
+$f-xxxlarge: 60px;
+$f-xxxxlarge: 70px;
+$f-xxxxxlarge: 100px;
+*/	
+
+%xxxxlarge-feature{
+	@include fluid-type($bp-small, $bp-hi, $f-xlarge, $f-xxxxlarge);	
+	font-family: $feature-font;
+	font-weight: 100;
+	line-height: 1;		
+	@include media("<=medium"){
+		line-height: 1.2;		
+	}
+}
+%xxxxlarge{
+	@include fluid-type($bp-small, $bp-hi, $f-xlarge, $f-xxxxlarge);	
+	line-height: 1;		
+	@include media("<=medium"){
+		line-height: 1.2;		
+	}
+}
+%xxxlarge-feature{
+	@include fluid-type($bp-small, $bp-hi, $f-large, $f-xxxlarge);	
+	font-family: $feature-font;
+	font-weight: lighter;	
+	line-height: 1;		
+	@include media("<=medium"){
+		line-height: 1.2;		
+	}
+}
+%xxxlarge{
+	@include fluid-type($bp-small, $bp-hi, $f-large, $f-xxxlarge);
+	line-height: 1.2;				
+	@include media("<=medium"){
+		line-height: 1.4;		
+	}
+}
+%xxlarge-feature{
+	@include fluid-type($bp-small, $bp-hi, $f-medium, $f-xxlarge);
+	font-family: $feature-font;
+	font-weight: lighter;	
+	line-height: 1.2;		
+	@include media("<=medium"){
+		line-height: 1.2;		
+	}
+}
+%xxlarge{
+	@include fluid-type($bp-small, $bp-hi, $f-medium, $f-xxlarge);
+	font-weight: lighter;	
+	line-height: 1.2;		
+	@include media("<=medium"){
+		line-height: 1.4;		
+	}
+}
+%xmlarge{
+	@include fluid-type($bp-small, $bp-hi, $f-medium, $f-xmlarge);
+	font-weight: lighter;	
+	line-height: 1.2;		
+	@include media("<=medium"){
+		line-height: 1.4;		
+	}
+}
+%xlarge-feature{
+	@include fluid-type($bp-small, $bp-hi, $f-medium, $f-xlarge);
+	font-family: $feature-font;
+	font-weight: lighter;	
+}
+%xlarge{
+	@include fluid-type($bp-small, $bp-hi, $f-medium, $f-xlarge);	
+}
+%large-feature{
+	@include fluid-type($bp-small, $bp-hi, $f-body, $f-large);
+	font-family: $feature-font;
+	font-weight: lighter;	
+}
+%large{
+	@include fluid-type($bp-small, $bp-hi, $f-body, $f-large);
+} 
+%body-feature{
+	@include fluid-type($bp-small, $bp-hi, $f-small, $f-body);
+	font-family: $feature-font;
+	font-weight: lighter;	
+}
+%body{
+	@include fluid-type($bp-small, $bp-hi, $f-small, $f-body);
+}
+%medium-feature{
+	@include fluid-type($bp-small, $bp-hi, $f-small, $f-medium);
+	font-family: $feature-font;
+	font-weight: lighter;	
+}
+%medium{
+	@include fluid-type($bp-small, $bp-hi,  $f-small, $f-medium);
+}
+%small{
+	@include fluid-type($bp-small, $bp-hi,  $f-mini, $f-small);
+}
+%formatting{
+	h2, h3, h4, p{
+		@include media(">=medium"){
+			max-width: 70%;			
+		}
+	}
+	h2{
+		@extend %large;
+		font-weight: bold;
+	}
+	p{
+		margin-bottom: $base-margin*2;
+		&:last-of-type{
+			margin-left: 0;
+		}
+	}
+	h2 + p{
+		margin-top: $base-margin*2;
+	}
+}
+a{
+	&.ul{
+		border-bottom: 2px solid $purple;
+		padding-bottom: 3px;
+		&:hover{
+			color: $red;
+		}
+		&--body{
+			border-bottom: 1px solid $red;
+			padding-bottom: 2px;
+			&:hover{
+				color: $red;
+			}
+		}
+	}	
+	&.bold{
+		font-weight: bold;
+	}
+	&.inline-block{
+		display: inline-block;
+	}
+	&.block{
+		display: block;
+	}
+	&.small{
+		@extend %small;
+	}	
+	&.medium{
+		@extend %medium;
+	}
+	&.large{
+		@extend %large;
+	}
+	&.body{
+		@extend %body;
+	}	
+	&.dark{
+		color: $dark-grey;
+		&:hover{
+			color: $red;
+		}
+	}
+	&.stop{
+		color: $red;
+		text-transform: uppercase;
+		&.ul{
+			border-bottom: 2px solid $red;
+		}
+		&:hover{
+			color: $dark-grey;
+			&.ul{
+				border-bottom: 2px solid $purple;
+			}
+		}
+	}
+	&.think{
+		color: $aqua;
+		text-transform: uppercase;
+		&.ul{
+			border-bottom: 2px solid $aqua;
+		}
+		&:hover{
+			color: $dark-grey;
+			&.ul{
+				border-bottom: 2px solid $purple;
+			}
+		}		
+	}
+	&.check{
+		color: $pink;
+		text-transform: uppercase;
+		&.ul{
+			border-bottom: 2px solid $pink;
+		}
+		&:hover{
+			color: $dark-grey;
+			&.ul{
+				border-bottom: 2px solid $purple;
+			}
+		}		
+	}
+	
+	&.arrow-down{
+		position: relative;
+		padding-right: $unit*1.5;
+		&:before{
+			content: '';
+			position: absolute; 
+			right: 0; top: calc(50% + 2px); transform: translateY(-50%);
+			@include triangle(bottom,6px,6px,$purple);
+		}	
+		&:after{
+			content: '';
+			position: absolute; 
+			right: 0; top: 50%; transform: translateY(-50%);
+			@include triangle(bottom,6px,6px,white);
+		}
+		&:hover{
+			&:before{
+				@include triangle(bottom,6px,6px,$red);
+			}	
+		}
+	}
+}
+a.inline-block + a.inline-block{
+	margin-left: $unit;
+}
+

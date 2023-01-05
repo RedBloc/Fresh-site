@@ -1,0 +1,27 @@
+name: dialog
+recipe: lamp
+config:
+  webroot: .
+  php: '7.4'
+services:
+  database:
+    portforward: 4587
+    creds:
+      user: admin
+      password: pass
+      database: dialog
+  node:
+    type: node
+    build: 
+      -npm install
+    globals:
+      grunt-cli: latest
+tooling:
+  npm:
+    service: node
+  node:
+    service: node
+  grunt:
+    service: node
+  yarn:
+    service: node

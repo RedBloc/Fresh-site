@@ -1,0 +1,268 @@
+/* #Reset & Basics (Inspired by E. Meyers)
+================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+li {
+  margin: 0;
+  padding: 0; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+img {
+  max-width: 100%; }
+
+/* ==============
+  MIXIN
+============== */
+/*  ---------------------------
+Sass conversion of Adam Schwartz's "Smarter Link Underline"
+-- (https://eager.io/blog/smarter-link-underlines/)
+
+Example Usage:
+  a {
+    @include link-underline(
+      $color-background,
+      $color-text,
+      $color-selection,
+      $underline-boldness
+    );
+  }
+
+NOTE:
+$underline-boldness is an optional modifier which will
+default to the normal weight unless set to 'bold'
+
+You can downlooad this mixin on npm
+(https://github.com/ekfuhrmann/scss-link-underline)
+--------------------------- */
+/* @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) */
+strong {
+  font-weight: normal; }
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  background: #f4f4f4;
+  color: #231f20;
+  font-family: "Roboto", sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1;
+  font-kerning: normal;
+  font-smoothing: antialiased;
+  font-weight: 300;
+  line-height: 1.4;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+hr {
+  border-top: 1px solid rgba(35, 31, 32, 0.2);
+  border-bottom: none;
+  height: 0; }
+
+body a, body a:link, body a:visited, body a:focus, body a:hover, body a:active {
+  text-decoration: none;
+  transition: all 0.2s; }
+  body a:-moz-any-link, body a:link:-moz-any-link, body a:visited:-moz-any-link, body a:focus:-moz-any-link, body a:hover:-moz-any-link, body a:active:-moz-any-link {
+    text-decoration: none !important; }
+  body a:any-link, body a:link:any-link, body a:visited:any-link, body a:focus:any-link, body a:hover:any-link, body a:active:any-link {
+    text-decoration: none !important; }
+
+em {
+  font-style: italic; }
+
+.display-block {
+  display: block; }
+
+.upper {
+  text-transform: uppercase; }
+
+.nomargin {
+  margin-bottom: 0; }
+
+.centered {
+  text-align: center; }
+
+.small, small {
+  font-size: 14px; }
+
+/*
+$f-mini: 14px;
+$f-small: 16px;
+$f-body: 18px;
+$f-medium: 21px;
+$f-large: 24px;
+$f-large: 24px;
+$f-xlarge: 30px;
+$f-xxlarge: 45px;
+$f-xxxlarge: 60px;
+$f-xxxxlarge: 70px;
+$f-xxxxxlarge: 100px;
+*/
+a.large {
+  font-size: 18px; }
+  @media screen and (min-width: 480px) {
+    a.large {
+      font-size: calc(18px + 6 * ((100vw - 480px) / 720)); } }
+  @media screen and (min-width: 1200px) {
+    a.large {
+      font-size: 24px; } }
+
+a.body {
+  font-size: 16px; }
+  @media screen and (min-width: 480px) {
+    a.body {
+      font-size: calc(16px + 2 * ((100vw - 480px) / 720)); } }
+  @media screen and (min-width: 1200px) {
+    a.body {
+      font-size: 18px; } }
+
+a.medium {
+  font-size: 16px; }
+  @media screen and (min-width: 480px) {
+    a.medium {
+      font-size: calc(16px + 5 * ((100vw - 480px) / 720)); } }
+  @media screen and (min-width: 1200px) {
+    a.medium {
+      font-size: 21px; } }
+
+a.small {
+  font-size: 14px; }
+  @media screen and (min-width: 480px) {
+    a.small {
+      font-size: calc(14px + 2 * ((100vw - 480px) / 720)); } }
+  @media screen and (min-width: 1200px) {
+    a.small {
+      font-size: 16px; } }
+
+a.ul {
+  border-bottom: 2px solid #816ab0;
+  padding-bottom: 3px; }
+  a.ul:hover {
+    color: #ce2026; }
+  a.ul--body {
+    border-bottom: 1px solid #ce2026;
+    padding-bottom: 2px; }
+    a.ul--body:hover {
+      color: #ce2026; }
+
+a.bold {
+  font-weight: bold; }
+
+a.inline-block {
+  display: inline-block; }
+
+a.block {
+  display: block; }
+
+a.dark {
+  color: #231f20; }
+  a.dark:hover {
+    color: #ce2026; }
+
+a.stop {
+  color: #ce2026;
+  text-transform: uppercase; }
+  a.stop.ul {
+    border-bottom: 2px solid #ce2026; }
+  a.stop:hover {
+    color: #231f20; }
+    a.stop:hover.ul {
+      border-bottom: 2px solid #816ab0; }
+
+a.think {
+  color: #2dd8db;
+  text-transform: uppercase; }
+  a.think.ul {
+    border-bottom: 2px solid #2dd8db; }
+  a.think:hover {
+    color: #231f20; }
+    a.think:hover.ul {
+      border-bottom: 2px solid #816ab0; }
+
+a.check {
+  color: #e28dad;
+  text-transform: uppercase; }
+  a.check.ul {
+    border-bottom: 2px solid #e28dad; }
+  a.check:hover {
+    color: #231f20; }
+    a.check:hover.ul {
+      border-bottom: 2px solid #816ab0; }
+
+a.arrow-down {
+  position: relative;
+  padding-right: 30px; }
+  a.arrow-down:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: calc(50% + 2px);
+    transform: translateY(-50%);
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    -moz-transform: scale(0.9999);
+    border-width: 6px 6px 0 6px;
+    border-color: #816ab0 transparent transparent transparent; }
+  a.arrow-down:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    -moz-transform: scale(0.9999);
+    border-width: 6px 6px 0 6px;
+    border-color: white transparent transparent transparent; }
+  a.arrow-down:hover:before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    -moz-transform: scale(0.9999);
+    border-width: 6px 6px 0 6px;
+    border-color: #ce2026 transparent transparent transparent; }
+
+a.inline-block + a.inline-block {
+  margin-left: 20px; }

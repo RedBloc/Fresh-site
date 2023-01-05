@@ -1,0 +1,78 @@
+$sans: "Roboto", sans-serif;
+$mono: "Roboto Mono";
+$alt: "Roboto";
+
+$feature-font: $sans;
+$body-font: $sans;
+$body-line-height: 1.4;
+$feature-line-height: 1.1;
+$extended-line-height: 1.6;
+$base-margin: 1rem * $body-line-height;
+
+$f-mini: 14px;
+$f-small: 16px;
+$f-body: 18px;
+$f-medium: 21px;
+$f-large: 24px;
+$f-xlarge: 30px;
+$f-xmlarge: 36px;
+$f-xxlarge: 45px;
+$f-xxxlarge: 60px;
+$f-xxxxlarge: 70px;
+$f-xxxxxlarge: 100px;
+
+// colors
+$blue: #00aafb;
+$dark-grey: #231f20;
+$green: #00cc66;
+$mid-grey: #ccc;
+$light-grey: #f4f4f4;
+$purple: #816ab0;
+$red: #ce2026;
+$rust: #c36f23;
+$peach: #ffa466;
+$orange: #f17b21;
+$gold: #d79d42;
+$lavender: #9a9bd4;
+$aqua: #2dd8db;
+$pink: #e28dad;
+$yellow: #fcb326;
+$persimmon: #FF6E47;
+$cinderalla: #FDE2CF;
+$cinderalla-light: #FFEBE0;
+$bright-blue: #00CCFF;
+
+$feature-col: $bright-blue;
+$feature-col-light: $cinderalla;
+$feature-text-col: $bright-blue;
+$body-color: $light-grey;
+$content-background: white;
+$body-font-color: $dark-grey;
+
+$nav-bg: white;
+$nav-color: #000;
+$nav-color-active: $bright-blue;
+
+// Units & measure
+$unit: 20px;
+$pad-vw: 2vw;
+
+// Content Widths
+$content_narrow: 600px;
+$content_medium: 960px;
+$content_wide: 1320px;
+
+// Breakpoints redefined for use with 
+// include-media 
+$col-max: 900px;
+$width-outer-max: 1600px;
+$width-max: 1400px;
+$width-mid: 1040px;
+$bp-small: 480px;
+$bp-medium: 600px;
+$bp-large: 960px;
+$bp-hi: 1200px;
+$breakpoints: (small: 480px, medium: 600px, large: 960px, hi: 1400px);
+
+// Timing
+$time-transition: 0.2s;
